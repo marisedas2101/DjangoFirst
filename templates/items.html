@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>Ассортимент</title>
+    {% endblock %}
+
+    {% block style %}
+        {{ block.super }}
+    {% endblock %}
+</head>
+<body>
+{% block menu %}
+     <nav class="menu">
+        /<a href="{% url 'home' %}">Домой</a>/<a href="">Об авторе</a>/
+    </nav>
+{% endblock %}
+
+{% block content %}
+<main class="content">
+    <h1>Список товаров</h1>
+    <ol>
+        {% for item in items %}
+        <li><a href="{% url 'item-page' item.id %}">{{ item.name }}</a></li>
+        {% endfor %}
+    </ol>
+</main>
+{% endblock %}
+</body>
+</html>

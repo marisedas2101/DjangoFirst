@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>Страница товара</title>
+    {% endblock %}
+    {% block style %}
+        {{ block.super }}
+    {% endblock %}
+</head>
+<body>
+{% block menu %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+<main class="content">
+    <h1>Страница товара</h1>
+    Название: {{ item.name }} <br>
+    Бренд: {{ item.brand }} <br>
+    Количество: {{ item.count|default:"Товар отсутствует" }}<br>
+</main>
+{% endblock %}
+</body>
+</html>
